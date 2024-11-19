@@ -14,10 +14,12 @@ def create_model(classes):
     x1_flatten = Flatten()(x1_pool)
     # Dense Layer
     x2 = Dense(512, kernel_regularizer=regularizers.l2(1e-5), activation='relu')(x1_flatten)
-    x2_dropout = Dropout(0.2)(x2)
+    x2_batch = BatchNormalization()(x2)
+    x2_dropout = Dropout(0.2)(x2_batch)
     # Second Dense Layer
     x3 = Dense(128, kernel_regularizer=regularizers.l2(1e-5), activation='relu')(x2_dropout)
-    x3_dropout = Dropout(0.2)(x3)
+    x3_batch = BatchNormalization()(x3)
+    x3_dropout = Dropout(0.2)(x3_batch)
     # Output Layer
     output_layer = Dense(len(classes), activation='softmax')(x3_dropout)
     model = Model(input, output_layer)
@@ -36,8 +38,8 @@ def get_checkpoint():
     return checkpoint
 
 def run():
-    train_dir = './files/TumorClassification/train'
-    test_dir = './files/TumorClassification/test'
+    train_dir = './files/Brain Tumor MRI/train'
+    test_dir = './files/Brain Tumor MRI/test'
 
     # Data Image Generators
     train_datage = ImageDataGenerator(rescale=1./255)
@@ -70,7 +72,7 @@ def run():
         color_mode='grayscale',
     )
 
-    classes = ["BENIGN", "MALIGNANT", "NORMAL"]
+    classes = ["glioma", "meningioma", "notumor", "pituitary"]
 
     model = create_model(classes)
     model.summary()

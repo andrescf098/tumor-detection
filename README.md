@@ -9,3 +9,7 @@ Active the virtual enviroment with the command **".\env\Scripts\activate"** in t
 ### Required modules
 
 Now use the **"pip freeze -r requirements.txt"** for download the required modules
+
+### Dataset
+
+https://www.kaggle.com/datasets/adityakomaravolu/brain-tumor-mri-images
