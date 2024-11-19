@@ -22,11 +22,13 @@ def create_model(classes):
     x3_dropout = Dropout(0.2)(x3_batch)
     # Output Layer
     output_layer = Dense(len(classes), activation='softmax')(x3_dropout)
+
     model = Model(input, output_layer)
 
     return model
 
 def get_checkpoint():
+    
     checkpoint_path = "./models/checkpoint.weights.keras"
     checkpoint = ModelCheckpoint(filepath=checkpoint_path,
                                 save_freq='epoch',
