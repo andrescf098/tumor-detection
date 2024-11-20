@@ -16,7 +16,7 @@ https://www.kaggle.com/datasets/adityakomaravolu/brain-tumor-mri-images
 
 Put the dataset in **"app/files"**
 
-### Train of the model
+### Model training
 
 Use the command **"python train_model.py"**, this will take several minutes and depends on whether or not a GPU is used.
 
