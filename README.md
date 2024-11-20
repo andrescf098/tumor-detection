@@ -13,3 +13,7 @@ Now use the **"pip freeze -r requirements.txt"** for download the required modul
 ### Dataset
 
 https://www.kaggle.com/datasets/adityakomaravolu/brain-tumor-mri-images
+
+### Server
+
+Use the command **"uvicorn app.main:app --reload"** for the run of server
