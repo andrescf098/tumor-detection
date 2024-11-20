@@ -14,6 +14,12 @@ Now use the **"pip freeze -r requirements.txt"** for download the required modul
 
 https://www.kaggle.com/datasets/adityakomaravolu/brain-tumor-mri-images
 
+Put the dataset in **"app/files"**
+
+### Train of the model
+
+Use the command **"python train_model.py"**, this will take several minutes and depends on whether or not a GPU is used.
+
 ### Backend
 
 Use the command **"uvicorn app.main:app --reload"** for the run of server
