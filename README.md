@@ -1,5 +1,7 @@
 # tumor-detection
 
+## Backend and Model
+
 ### Virtual enviroment
 
 Use the command **"python -m venv env"** for to create the virtual enviroment and then,
@@ -20,6 +22,10 @@ Put the dataset in **"app/files"**
 
 Use the command **"python train_model.py"**, this will take several minutes and depends on whether or not a GPU is used.
 
-### Backend
+### Run server
 
 Use the command **"uvicorn app.main:app --reload"** for the run of server
+
+## Frontend
+
+Open file **"index.html"**

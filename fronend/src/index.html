@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Rayos X Cerebrales</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+          
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Analizador de Radiografia Cerebral</h1>
+            <p>Sube una imagen de rayos X para detectar anomalías cerebrales mediante IA</p>
+        </div>
+
+        <div class="upload-container">
+            <div class="drop-zone" id="dropZone">
+                <p>Arrastra y suelta tu imagen aquí o haz clic para seleccionar</p>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Analizando imagen mediante IA...</p>
+        </div>
+
+    <!-- Modal de carga -->
+        <div class="modal-overlay" id="loadingModal">
+            <div class="modal">
+                <div class="loading-brain"></div>
+                <h3 class="loading-text">Analizando imagen</h3>
+                <div class="loading-progress">
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="loading-steps">
+                    <p class="step" id="step1">Preparando imagen...</p>
+                    <p class="step" id="step2">Aplicando modelo de IA...</p>
+                    <p class="step" id="step3">Procesando resultados...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="results" id="results">
+            <h2>Resultados del Análisis</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <h3>Imagen Analizada</h3>
+                    <img id="previewImage" class="preview-image" alt="Rayos X">
+                </div>
+                <div class="result-card">
+                    <h3>Probabilidades Detectadas</h3>
+                    <canvas id="resultsChart"></canvas>
+                </div>
+            </div>
+            <div class="diagnosis-panel">
+                <p id="diagnosisMessage" class="diagnosis-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

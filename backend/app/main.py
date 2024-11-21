@@ -2,12 +2,21 @@ import io
 import numpy as np
 import tensorflow.keras.models as models
 from fastapi import FastAPI, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
 model = models.load_model('./app/models/model.h5')
 model.load_weights('./app/models/checkpoint.weights.keras')
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/process-image/")
 async def predict_image(file: UploadFile):
